@@ -5,17 +5,6 @@ import '../src/styles.css'
 
 
 
-const cellStyle = {display: "inline-block", 
-fontSize:"40px", 
-color:"Black",
-border:"4px black solid", 
-width:"50px", 
-height:"50px",
-textAlign:"center",
-backgroundColor:"#F1E083",
-
-
-}
 
 const checkWinner = (board) => {
   let winner = null
@@ -55,6 +44,7 @@ const bestMove = (board, player) => {
     }
   }
     ))))
+    
     if (validMoves.length === 0){
       return [null, 0]
     }
@@ -133,13 +123,22 @@ if (player === "X"){
 }
  },[board])
 
+ const reset = () => {
+    setBoard([
+      [" ", " "," "],
+      [" ", " "," "],
+      [" ", " "," "],])
+      setWinner(null)
+      setPlayer("X")
+ }
+
 
 
 
   
 
   return (
-    <div>
+    <div className='player'>
       Current Player: {player}
     <br/>
     {/**Best Move:{bestMove(board,player)[0]}**/ }
@@ -149,23 +148,25 @@ if (player === "X"){
     <div>
 
       <div className='row'>
-        <div style={cellStyle} onClick={makeMove(0,0)}>{board[0][0]}</div>
-        <div style={cellStyle} onClick={makeMove(0,1)}>{board[0][1]}</div>
-        <div style={cellStyle} onClick={makeMove(0,2)}>{board[0][2]}</div>
+        <div className='square' onClick={makeMove(0,0)}>{board[0][0]}</div>
+        <div className='square' onClick={makeMove(0,1)}>{board[0][1]}</div>
+        <div className='square' onClick={makeMove(0,2)}>{board[0][2]}</div>
       </div>
 
       <div  className='row'>
-        <div style={cellStyle} onClick={makeMove(1,0)}>{board[1][0]}</div>
-        <div style={cellStyle} onClick={makeMove(1,1)}>{board[1][1]}</div>
-        <div style={cellStyle} onClick={makeMove(1,2)}>{board[1][2]}</div>
+        <div className='square' onClick={makeMove(1,0)}>{board[1][0]}</div>
+        <div className='square' onClick={makeMove(1,1)}>{board[1][1]}</div>
+        <div className='square' onClick={makeMove(1,2)}>{board[1][2]}</div>
       </div>
 
       <div  className='row'>
-        <div style={cellStyle} onClick={makeMove(2,0)}>{board[2][0]}</div>
-        <div style={cellStyle} onClick={makeMove(2,1)}>{board[2][1]}</div>
-        <div style={cellStyle} onClick={makeMove(2,2)}>{board[2][2]}</div>
+        <div className='square' onClick={makeMove(2,0)}>{board[2][0]}</div>
+        <div className='square' onClick={makeMove(2,1)}>{board[2][1]}</div>
+        <div className='square' onClick={makeMove(2,2)}>{board[2][2]}</div>
       </div>
       </div>
+      <br/>
+      <button onClick={reset}>New Game</button>
 
       
     </div>

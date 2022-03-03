@@ -3,4 +3,41 @@
     justify-content: center;
     
     }
+
+.square {
+    border: solid 4px black;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding: 1px;
+    font-size: 80px;
+    background-color: lightgoldenrodyellow;
     
+}
+
+.square:hover {
+    background-color: gray;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.square:active{
+    transform: translateY(4px);
+    box-shadow: 0 1px gray;
+   
+}
+
+button {
+    background-color: grey;
+    color: lightgoldenrodyellow;
+    border: solid 2px black;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px gray;
+}
+
+.player {
+    font-size: 30px;
+}
